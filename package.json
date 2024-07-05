@@ -1,0 +1,19 @@
+{
+    "name": "napcat.core.test",
+    "version": "1.0.0",
+    "description": "napcat.core.test",
+    "scripts": {
+      "build": "electron-vite build"
+    },
+    "devDependencies": {
+      "@types/node": "^20.11.30",
+      "vite": "^5.2.6",
+      "vite-plugin-cp": "^4.0.8",
+      "electron": "^29.0.1",
+      "electron-vite": "^2.0.0"
+    },
+    "dependencies": {
+      "napcat.core": "^1.0.1"
+    }
+  }
+  
