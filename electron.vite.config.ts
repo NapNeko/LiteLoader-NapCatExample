@@ -30,6 +30,7 @@ let config = {
       cp({
         targets: [
           ...external.map(genCpModule),
+          { src: './package.json', dest: 'dist' },
           { src: './manifest.json', dest: 'dist' }
         ],
       }),

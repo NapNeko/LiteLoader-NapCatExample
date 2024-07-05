@@ -1,29 +1,29 @@
 {
-    "manifest_version": 4,
-    "type": "extension",
-    "name": "NapCat.Test",
-    "slug": "NapCat",
-    "description": "NapCat Test",
-    "version": "1.0.0",
-    "icon": "./icon.jpg",
-    "authors": [
-      {
-        "name": "NapNeko",
-        "link": "https://github.com/NapNeko"
-      }
-    ],
-    "repository": {
-      "repo": "NapNeko/LiteLoader-NapCatExample",
-      "branch": "main"
-    },
-    "platform": [
-      "win32",
-      "linux",
-      "darwin"
-    ],
-    "injects": {
-      "renderer": "./renderer/index.js",
-      "main": "./main/main.cjs",
-      "preload": "./preload/preload.cjs"
+  "manifest_version": 4,
+  "type": "extension",
+  "name": "nc",
+  "slug": "NapCat",
+  "description": "NapCat Test",
+  "version": "1.0.0",
+  "icon": "./icon.jpg",
+  "authors": [
+    {
+      "name": "NapNeko",
+      "link": "https://github.com/NapNeko"
     }
+  ],
+  "repository": {
+    "repo": "NapNeko/LiteLoader-NapCatExample",
+    "branch": "main"
+  },
+  "platform": [
+    "win32",
+    "linux",
+    "darwin"
+  ],
+  "injects": {
+    "renderer": "./renderer/renderer.mjs",
+    "main": "./main/main.js",
+    "preload": "./preload/preload.js"
   }
+}
