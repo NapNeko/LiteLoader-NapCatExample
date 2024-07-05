@@ -1,5 +1,4 @@
 import cp from 'vite-plugin-cp';
-import './scripts/gen-version';
 import path from 'node:path';
 
 const external = [];
@@ -15,11 +14,11 @@ let config = {
       emptyOutDir: true,
       lib: {
         formats: ['cjs'],
-        entry: { main: 'src/main/main.ts' },
+        entry: { main: 'src/main.ts' },
       },
       rollupOptions: {
         external,
-        input: 'src/main/main.ts',
+        input: 'src/main.ts',
       },
     },
     resolve: {
