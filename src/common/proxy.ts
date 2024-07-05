@@ -1,4 +1,4 @@
-import type { NodeIQQNTWrapperSession, NTWrapperNodeApi } from "napcat.core";
+import type { NodeIKernelLoginService, NodeIQQNTWrapperSession, NTWrapperNodeApi } from "napcat.core";
 let Process = require('process');
 let os = require('os');
 
@@ -6,6 +6,7 @@ Process.dlopenOrig = Process.dlopen
 
 let WrapperSession: NodeIQQNTWrapperSession | undefined = undefined;//NativeNpdeSession
 let WrapperNodeApi: NTWrapperNodeApi | undefined = undefined;//NativeNpdeApi
+let WrapperLoginService: NodeIKernelLoginService | undefined = undefined;
 
 Process.dlopen = function (module, filename, flags = os.constants.dlopen.RTLD_LAZY) {
     let dlopenRet = this.dlopenOrig(module, filename, flags)
@@ -14,6 +15,7 @@ Process.dlopen = function (module, filename, flags = os.constants.dlopen.RTLD_LA
             construct: (target, args, _newTarget) => {
                 let ret = new target(...args)
                 if (export_name === 'NodeIQQNTWrapperSession') WrapperSession = ret
+                if (export_name === 'NodeIKernelLoginService') WrapperLoginService = ret
                 return ret
             },
         })
@@ -26,11 +28,14 @@ Process.dlopen = function (module, filename, flags = os.constants.dlopen.RTLD_LA
 export function getWrapperSession() {
     return WrapperSession;
 }
+export function getWrapperLoginService() {
+    return WrapperLoginService;
+}
 export function getWrapperNodeApi() {
     return WrapperNodeApi;
 }
 export function NTIsInit() {
-    return WrapperSession != undefined && WrapperNodeApi != undefined;
+    return WrapperSession != undefined && WrapperNodeApi != undefined && WrapperLoginService != undefined;
 }
 function pollForNTInit() {
     return new Promise((resolve, reject) => {

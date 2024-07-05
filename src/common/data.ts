@@ -1,2 +1,5 @@
 import { NTCoreWrapper } from "napcat.core";
-export const NTCore: NTCoreWrapper | undefined = undefined;
+interface NTCoreType {
+    instance: NTCoreWrapper | undefined;
+}
+export const NTCore:NTCoreType = { instance: undefined };
