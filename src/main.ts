@@ -46,4 +46,7 @@ export const onBrowserWindowCreated = (window: BrowserWindow) => {
 
 async function NCInit() {
     console.log("[NapCat] [Info] 开始初始化自身逻辑");
+    //演示接口
+    //await NTCore.instance!.getApiMsg().setMsgRead();
+    //await NTCore.instance!.getApiCollection().createCollection("test", "U_XXX","1","1","1");
 }
